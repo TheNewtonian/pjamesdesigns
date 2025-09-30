@@ -1,0 +1,255 @@
+body{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.4;
+}
+
+.hero{
+    padding: 2rem 4rem 3rem;
+    background: linear-gradient(180deg, #783aff, #ac74e0);
+    display: flex;
+    color: white;
+    text-align: center;
+    border-bottom: 5px solid #6d00a7;
+}
+.hero-img{
+    width: 200px;
+    border-radius: 50%;
+    box-shadow: 2px 4px 5px rgba(0,0,0,0.2);
+}
+
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+    color: white;
+}
+
+@media screen and (max-width: 768px){
+        
+        .hero{
+            padding: 2rem 1rem;
+            text-align: center;
+            justify-content: center;
+        }
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 1rem;
+        }
+        #topBtn{
+            right: 6px;
+            bottom: 20px;
+            font-size: 3px;
+        }
+        .skills-section{
+            padding: 2rem 1rem;
+            text-align: center;
+            justify-content: center;
+        }
+        .skills-container{
+            padding: 1rem 1rem;
+            text-align: center;
+            justify-content: center;
+        }
+        .portfolio-section{
+            padding: 2rem 1rem;
+            text-align: center;
+            justify-content: center;
+        }
+        .portfolio-container{
+            padding: 1rem 1rem;
+            text-align: center;
+            justify-content: center;
+        }
+        .portfolio-img {
+            width: 50%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+.hero p{
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    margin: 1rem 0;
+    color: white;
+    font-weight: 350;
+    display: flex;
+    text-align: left;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+button{
+    padding: 0.3rem 1rem;
+    font-size: 1rem;
+    border-radius: 5rem;
+    border: 2px solid #6d00a7;
+    cursor: pointer;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+
+}
+button:hover{
+    transform: translate(-3px, -3px);
+    transition: all 0.3s ease;
+    box-shadow: 2px 4px 2px rgba(0,0,0,0.2);
+}
+
+.skills-section {
+    text-align: center;
+    padding: 2rem 3rem;
+}
+
+.skills-container{
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+    padding: 2rem 4rem;
+}
+
+.portfolio-section{
+    text-align: center;
+    padding: 2rem 4rem;
+}
+
+.portfolio-container{
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+    padding: 2rem 4rem;
+}
+.portfolio-item{
+    background-color: #f4f4f4;
+    padding: .3rem 1rem;
+    border-radius: 10px;
+    box-shadow: 2px 4px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-img{
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 5px rgba(0,0,0,0.2);
+}
+/*To top button*/
+#topBtn{
+    padding: 0px;
+    font-size: 20px;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    z-index: 99;
+    background-color: transparent;
+    border: none;
+}
+#topBtn:hover{
+    transform: none;
+    transition: none;
+    box-shadow: none;
+}
+
+.bi-arrow-up-circle-fill{
+    font-size: 30px;
+    color: #6d00a7;
+    fill: white;
+}
+
+.bi-instagram, .bi-facebook, .bi-linkedin{
+    color: white;
+    font-size: 30px;
+    margin-right: 10px;
+    margin-top: 0%;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+}
+
+.form-control{
+    border-radius: .6rem;
+    padding: 0.3rem .5rem;
+    width: auto;
+    margin: .5rem .5rem;
+    font-size: 1rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+.form-control label{
+    font-weight: 600;
+    margin-bottom: 2px;}
+
+.input-group{
+    margin: 10px 0;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer{
+    text-align: center;
+    padding: 1rem 15px .5rem;
+    color: white;
+    font-weight: 600;
+    background-color: #6d00a7;
+    background: linear-gradient(180deg, #783aff, #ac74e0);
+    border-top: #6d00a7 solid 5px;
+}
+
+.footer-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-p{
+    text-align: center;
+    padding: 1rem 2rem .3rem;
+}
+.footer-item{
+    text-align: center;
+    padding: 0 2rem;
+}
+.footer-btns{
+    gap: 1rem;
+    margin: 0 .5rem 1rem;
+}
+.whatsApp{
+    background-color: #198754;
+    border: 2px solid #ffffff;
+}
+.whatsApp a{
+    color: white;
+    font-weight: 600;
+}
+.btn{
+    margin: .5rem 0;
+    justify-content: center;
+}
+.badge-base {
+    margin-top: 10px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
