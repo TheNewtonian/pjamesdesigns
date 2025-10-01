@@ -137,7 +137,6 @@ button:hover{
     padding: .3rem 1rem;
     border-radius: 10px;
     box-shadow: 2px 4px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
 }
 
 .portfolio-img{
