@@ -11,9 +11,9 @@ body{
 }
 nav{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+    justify-content: center;
     padding: 1rem 0;
     background-color: #f4f4f4;
     color: white;
@@ -22,30 +22,32 @@ nav{
     top: 0;
     z-index: 100;
     border-bottom: #6d00a7 solid 2px;
-    height: 30px;
+    height: 70px;
 }
 .nav-logo{
     width: 50px;
     padding: 0 4rem;
+    margin: 1rem 0 .2rem;
 }
 .nav-links{
     list-style: none;
     display: flex;
     float: right;
     justify-content: flex-end;
-    gap: 1.5rem;
+    gap: 1rem;
     padding: 0 4rem;
+    margin: .3rem 0 1rem;
     font-weight: 500;
 }
 .hero{
-    padding: 4rem 4rem 3rem;
+    padding: 8rem 4rem 3rem;
     background: linear-gradient(180deg, #783aff, #ac74e0);
     background: url(./images/Hero\ image2c.png);
     background-size: contain;
     display: flex;
     color: white;
     text-align: center;
-    border-bottom: 5px solid #6d00a7;
+    border-bottom: 4px solid #6d00a7;
 }
 /* .hero-img{
     width: 200px;
@@ -74,7 +76,7 @@ nav{
 @media screen and (max-width: 768px){
         
         .hero{
-            padding: 5rem 1rem;
+            padding: 8rem 1rem;
             text-align: center;
             justify-content: center;
         }
@@ -143,6 +145,13 @@ nav{
         }
         .about-img{
             display: none;
+        }
+        .footer-container{
+            padding: 1rem 1rem;
+        }
+        .footer h2 {
+            margin: 2rem 0 0;
+            font-size: medium;
         }
     }
 
@@ -245,7 +254,7 @@ button:hover{
 }
 .abt-img2{
     width: 200px;
-    border-radius: 50%;
+    border-radius: 20px;
 }
 .about-container{
     display: grid;
@@ -361,6 +370,9 @@ footer{
     padding: 0 2rem;
     justify-content: center;
     align-content: center;
+}
+.footer h2 {
+    margin: 2rem 0 0;
 }
 .footer-btns{
     gap: 1rem;
