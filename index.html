@@ -11,13 +11,25 @@
 </head>
 <body>
    
+    <header>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#top"><img class="nav-logo" src="./images/P. James logo.png" alt="P. James logo"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+   
     <section class="hero" id="top">
     <div class="hero-content">
-        <h1 class="">I'm P. James</h1>
+        <h1 class="">Hi, I'm P. James</h1>
         <h3 class="">A Graphic Designer & Front-end developer</h3>
-        <img src="./images/my profile image3b.png" class="hero-img" alt="Profile photo of P. James, Graphic Designer and Front-end Developer">
-        <p class="" id="about">
-            I'm a freelance digital graphic designer and I help businesses make their creative ideas come to life, stand
+        <!-- <img src="./images/my profile image3c.jpg" class="hero-img" alt="Profile photo of P. James, Graphic Designer and Front-end Developer"> -->
+        <p>
+            I'm a freelance digital/graphic designer and I help businesses make their creative ideas come to life, stand
             out
             and communicate to their target audience
             through visually appealing logo designs, print collateral materials, vector illustrations and user-friendly
@@ -26,9 +38,9 @@
             solutions to problems facing businesses today. <br>
             Feel free to browse my portfolio or connect to discuss your project!</p>
         <div class="hero-btns">
-            <button type="button" class=""><a class="" href="#contact">Get in
+            <button type="button" class="rounded-pill"><a class="" href="#contact">Get in
                     touch</a></button>
-            <button type="button" class=""><a class="" href="./Capstone project 1/capstone1.html">Curriculum Vitae (CV)
+            <button type="button" class="rounded-pill"><a class="" href="./Capstone project 1/capstone1.html">Curriculum Vitae (CV)
                 </a></button>
         </div>
     </div>
@@ -70,7 +82,7 @@
     </div>
 </section>
 
-<section class="portfolio-section">
+<section class="portfolio-section" id="portfolio">
     <h1>My Work</h1>
     <div class="portfolio-container">
         <div class="portfolio-item">
@@ -92,7 +104,7 @@
             <h3>Web design/Frontend webpages</h3>
             <p>These are conceptual designs for frontend one-page websites.</p>
             <img class="portfolio-img" src="./images/Project MoveIt 2.png" alt="Portfolio Item 3">
-            <img class="portfolio-img" src="./images/Project TinDog.png" alt="Portfolio Item 3">
+            <img class="portfolio-img" src="./images/Project MoveIt.png" alt="Portfolio Item 3">
             <img class="portfolio-img" src="./images/Project SketchFlock.png" alt="Portfolio Item 3">
         </div>
         <div class="portfolio-item">
@@ -120,6 +132,65 @@
     </div>
 </section>
 
+<section class="testimonials-section">
+    <h1>Testimonials</h1>
+    <div class="testimonials-container">
+        <div class="testimonial">
+            <img class="testimonial-img" src="./images/Ann O pic.png" alt="Client Ann O">
+            <p>"P. James did a great job redesigning our company logo, flyers and business card.
+                 He was professional, creative, and easy to work
+                with. We highly recommend him!"</p>
+            <h3>- Ann O., CEO of Ann Global Tech Innovation</h3>
+        </div>
+        <div class="testimonial">
+            <img class="testimonial-img" src="./images/Anton F pic.jpg" alt="Client Anton F">
+            <p>"I hired P. James to build my website, and I couldn't be happier with the result. He listened to my needs
+                and delivered a beautiful, functional site that exceeded my expectations."</p>
+            <h3>- Anton F., Small Business Owner</h3>
+        </div>
+        <div class="testimonial">
+            <img class="testimonial-img" src="./images/Precious A pic.png" alt="Client Precious A">
+            <p>"P. James is a talented designer who truly understands branding. He helped us create a cohesive visual
+                identity that has made a big impact on my business."</p>
+            <h3>- Precious A., Dinma's Cuisine</h3>
+        </div>
+    </div>
+</section>
+
+<section class="about-section" id="about">
+    <h1>More About Me</h1>
+    <img src="./images/my profile image3c.jpg" class="abt-img2" alt="Profile photo of P. James, Graphic Designer and Front-end Developer">
+    <div class="about-container">
+        <!-- <img class="about-img item-e" src="./images/my about image5.png" alt="my about image"> -->
+            <div class="about-item item-a">
+                <h3>Background</h3>
+                <p>I hold a Bachelor of Science degree in Computer Science from the University of Calabar, Nigeria. However, my
+                    passion for creativity and technology led me to pursue a career in graphic design and web development.
+                    I have since honed my skills through various online courses and practical experience.</p>
+            </div>
+            <div class="about-item item-b">
+                <h3>Hobbies</h3>
+                <p>In my free time, I enjoy exploring new design trends, experimenting with different art styles, and
+                    learning about the latest web development technologies. I also love chess, music, and
+                    spending time with my family and friends.</p>
+            </div>
+            <div class="about-item item-c">
+                <h3>Values</h3>
+                <p>I believe in the power of creativity to solve problems and make a positive impact on the world. I am
+                    committed to delivering high-quality work that meets my clients' needs and exceeds their expectations.
+                    I value honesty, integrity, and open communication in all my professional relationships.</p>
+            </div>
+            <div class="about-item item-d">
+                <h3>Goals</h3>
+                <p>My goal is to continue growing as a designer and developer, taking on new challenges and expanding my
+                    skillset. I aspire to work with clients from diverse industries and backgrounds, helping them achieve
+                    their business objectives through effective design and technology solutions.</p>
+            </div>
+    </div>
+    <p>If you're interested in working with me or have any questions, please don't hesitate to reach out. You can
+        contact me via email, phone, or social media. I look forward to hearing from you!</p>
+</section>
+
 <footer class="footer" id="contact">
     <div class="footer-container">
         <div class="footer-item">
@@ -141,8 +212,8 @@
             </div>
 
             <!-- Contact Form -->
-            <div class="">
-                <form class="form-container">
+            <!-- <div class="">
+                <form class="form-container" action="php.php" method="POST">
                     <div class="input-group">
                         <div class="form-item">
                             <label for="name">Name:</label>
@@ -150,27 +221,50 @@
                         </div>
                         <div class="form-item">
                             <label for="email">Email:</label>
-                            <input type="email" class="form-control" placeholder="Enter your current email" required>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your current email" required>
                         </div>
                         <div class="form-item">
                         <label for="message">Message:</label>
                         <textarea name="message" id="message" class="form-control" rows="3" placeholder="Send a message"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary"><i class="bi bi-send-fill"></i> Send</button>
+                        <button type="submit" value="Send" class="btn btn-primary"><i class="bi bi-send-fill"></i> Send</button>
                     </div>
+                </form>
+            </div> -->
+            <div class="container">
+                <h2>Thanks for taking the time to reach out. How can I help you today?</h2>
+                <form class="form-container" target="_blank" action="https://formsubmit.co/6092fa12002b04175955f2d9701aa9b3" method="POST">
+                    <div class="input-group">
+                        <div class="form-item">
+                            <div class="col">
+                                <label for="name">Name:</label>
+                                <input type="text" name="name" class="form-control" class="form-control" placeholder="Full Name" required>
+                            </div>
+                            <div class="col">
+                                <label for="email">Email:</label>
+                                <input type="email" name="email" class="form-control" class="form-control" placeholder="Email Address" required>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="message">Message:</label>
+                        <textarea placeholder="Your Message" class="form-control" class="form-control" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-send-fill"></i> Submit</button>
+                    </div>
+                    
                 </form>
             </div>
         </div>
     </div>
     <div class="footer-item">
-        <h3 class="">Follow me</h3>
-        <a href="https://web.facebook.com/victor.da.maximus01" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/the_newtonian01/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-        <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark"
+        <h3 class="">Follow me:  <a href="https://web.facebook.com/victor.da.maximus01" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/the_newtonian01/" aria-label="Instagram"><i class="bi bi-instagram"></i></a></h3>
+        
+        <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="small" data-theme="dark"
             data-type="VERTICAL" data-vanity="pjamesdesigns" data-version="v1"><a class="badge-base__link LI-simple-link"
                 href="https://ng.linkedin.com/in/pjamesdesigns?trk=profile-badge"></a></div>
     </div>
-    <p class="footer-p">&copy; <span id="year">2025</span> P.James @ InvoCrea8</p>
+    <p class="footer-p">&copy; <span id="year">2025</span> P.James @ Artollary Studio</p>
 </footer>
 
 <button id="topBtn" title="Go to top">
