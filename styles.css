@@ -11,7 +11,7 @@ body{
 }
 nav{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     padding: 1rem 0;
@@ -22,11 +22,10 @@ nav{
     top: 0;
     z-index: 100;
     border-bottom: #6d00a7 solid 2px;
-    height: 70px;
+    height: 50px;
 }
 .nav-logo{
     width: 50px;
-    padding: 0 4rem;
     margin: 1rem 0 .2rem;
 }
 .nav-links{
@@ -35,19 +34,18 @@ nav{
     float: right;
     justify-content: flex-end;
     gap: 1rem;
-    padding: 0 4rem;
-    margin: .3rem 0 1rem;
+    margin: 1rem 0 .2rem;
     font-weight: 500;
 }
 .hero{
     padding: 8rem 4rem 3rem;
     background: linear-gradient(180deg, #783aff, #ac74e0);
     background: url(./images/Hero\ image2c.png);
-    background-size: contain;
+    background-size: cover;
     display: flex;
     color: white;
     text-align: center;
-    border-bottom: 4px solid #6d00a7;
+    border-bottom: 2px solid #6d00a7;
 }
 /* .hero-img{
     width: 200px;
@@ -159,6 +157,9 @@ a{
     text-decoration: none;
     color: black;
 }
+a:hover{
+    color: #6d00a7;
+}
 
 button{
     padding: 0.3rem 1rem;
@@ -174,6 +175,9 @@ button:hover{
     transform: translate(0px, -3px);
     transition: all 0.3s ease;
     box-shadow: 2px 4px 5px 2px rgba(0,0,0,0.2);
+    background-color: #6d00a7;
+    border: 2px solid white;
+    color: #ffffff;
 }
 
 .skills-section {
@@ -314,6 +318,9 @@ button:hover{
     margin-right: 10px;
     margin-top: 0%;
 }
+.bi-instagram:hover, .bi-facebook:hover{
+    color: #6d00a7;
+}
 
 .form-container{
     display: flex;
@@ -332,9 +339,6 @@ button:hover{
     display: flex;
     flex-direction: column;
 }
-.form-control label{
-    font-weight: 600;
-    margin-bottom: 2px;}
 
 .input-group{
     margin: 10px 0;
@@ -368,10 +372,11 @@ footer{
 .footer-item{
     text-align: center;
     padding: 0 2rem;
+    margin: 1rem 0 2rem;
     justify-content: center;
     align-content: center;
 }
-.footer h2 {
+.footer h4 {
     margin: 2rem 0 0;
 }
 .footer-btns{
@@ -381,12 +386,18 @@ footer{
 .whatsApp{
     background-color: #198754;
     border: 2px solid #ffffff;
-}
-.whatsApp a{
     color: white;
-    font-weight: 600;
 }
-.btn{
-    margin: .5rem 0;
+.whatsApp:hover{
+    background-color: #ffffff;
+    border: 2px solid #198754;
+    color: #198754 !important;
+}
+.badge-base{
+    display: flex;
     justify-content: center;
+    align-content: center;
+    padding: .5rem 0;
+    margin: .5rem 0;
+    width: 100%;
 }
