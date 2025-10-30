@@ -53,7 +53,7 @@ nav{
 }
 .nav-link:hover{
     color: #6d00a7;
-    box-shadow: inset 0px 0px 4px 1px #00000090;
+    box-shadow: inset 0px 0px 3px 1px #00000090;
     border-radius: 5px;
 }
 .hero{
