@@ -12,224 +12,320 @@
     <!-- Google Fonts - Orbitron -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
 </head>
+<style>
+    /* Styles for the main content */
+    #main-content {
+        /* This transition smooths out the 'un-blurring' effect */
+        transition: filter 0.5s ease-in-out;
+    }
+
+    /* This is the class that JavaScript will remove */
+    #main-content.blurred {
+        /* This applies the blur effect */
+        filter: blur(10px);
+        /* This prevents the user from clicking on blurred content */
+        pointer-events: none;
+    }
+
+
+    /* Styles for the preloader itself */
+    #preloader {
+        position: fixed;
+        /* Sits on top of everything */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        /* Full viewport height */
+        z-index: 9999;
+        /* Ensures it's on the absolute top layer */
+
+        /* A semi-transparent white background */
+        background-color: rgba(255, 255, 255, 0.7);
+
+        /* Uses Flexbox to center the spinning loader */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* Styles for the fade-out transition */
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    }
+
+    /* This class will be added by JavaScript to hide the preloader */
+    #preloader.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+
+    /* Styles for the spinning loader */
+    .loader {
+        width: 60px;
+        height: 60px;
+        border: 8px solid #f3f3f3;
+        /* Light grey circle */
+        border-top: 8px solid #3498db;
+        /* Blue part */
+        border-radius: 50%;
+
+        /* This applies the spin animation */
+        animation: spin 1.5s linear infinite;
+    }
+
+    /* The @keyframes rule defines the animation */
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .responsive-img {
+        width:100%; 
+        max-width: 800px;
+    }
+</style>
 
 <body>
-
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html"><img class="nav-logo" src="./images/P. James logo.png" alt="P. James logo"></a>
-            </div>
-            <ul class="nav-links">
-                <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                <li><a class="nav-link" href="#about">About</a></li>
-                <li><a class="nav-link" href="#contact">Contact</a></li>
-            </ul>
-    </header>
-
-    <section class="hero" id="top">
-        <div class="hero-sub">
-            <div>
-                <h1>Bring Your Creative Ideas to Life</h1>
-                <p>
-                    Are you having trouble turning your idea into a polished brand and a useful website? <br>
-                    I offer a comprehensive, integrated answer to the issue. I offer everything you require as a digital designer and web
-                    developer, from a high-performing, user-friendly website to a smart logo and brand identity. Through the integration of
-                    technical development and creative design, I provide a smooth, comprehensive service that enhances your brand. <br> <br>
-                    Feel free to explore my work and get in touch to discuss how we can work together to elevate your brand and online
-                    presence.
-                </p>
-                <div class="hero-btns">
-                    <a href="#contact"> <button type="button">Get in touch</button></a>
-                    <a href="#portfolio">
-                        <button type="button">View work</button>
-                    </a>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <div id="main-content" class="blurred">
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html"><img class="nav-logo" src="./images/P. James logo.png" alt="P. James logo"></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li><a class="nav-link" href="#about">About</a></li>
+                    <li><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+        </header>
+    
+        <section class="hero" id="top">
+            <div class="hero-sub">
+                <div>
+                    <h1>Bring Your Creative Ideas to Life</h1>
+                    <p>
+                        Are you having trouble turning your idea into a polished brand and a useful website? <br>
+                        I offer a comprehensive, integrated answer to the issue. I offer everything you require as a digital
+                        designer and web
+                        developer, from a high-performing, user-friendly website to a smart logo and brand identity. Through
+                        the
+                        integration of
+                        technical development and creative design, I provide a smooth, comprehensive service that enhances
+                        your
+                        brand. <br> <br>
+                        Feel free to explore my work and get in touch to discuss how we can work together to elevate your
+                        brand
+                        and online
+                        presence.
+                    </p>
+                    <div class="hero-btns">
+                        <a href="#contact"> <button type="button">Get in touch</button></a>
+                        <a href="#portfolio">
+                            <button type="button">View work</button>
+                        </a>
+                    </div>
+                </div>
+                <!-- Gallery -->
+                <!-- <div>
+                            <div class="gallery">
+                                <img src="./images/Illustration Meditate_1_optimized.png" alt="design sample">
+                                <img src="./images/Carousel soundhome tech 05v2.jpg" alt="design sample">
+                                <img src="./images/Flyer Ann Tech.jpg" alt="design sample">
+                                <img src="./images/Bcard Jasmine1.jpg" alt="design sample">
+                            </div>
+                        </div> -->
+                <div>
+                    <img src="./images/hero img.png" alt="Bring Your Creative Ideas to Life">
                 </div>
             </div>
-            <!-- Gallery -->
-            <!-- <div>
-                <div class="gallery">
-                    <img src="./images/Illustration Meditate_1_optimized.png" alt="design sample">
-                    <img src="./images/Carousel soundhome tech 05v2.jpg" alt="design sample">
-                    <img src="./images/Flyer Ann Tech.jpg" alt="design sample">
-                    <img src="./images/Bcard Jasmine1.jpg" alt="design sample">
+        </section>
+    
+        <section class="skills-section">
+            <h1>My Skills</h1>
+            <div class="skills-container">
+                <div class="skill">
+                    <i class="bi bi-brush"></i>
+                    <h3>Graphic Design (Branding)</h3>
+                    <p>
+                        Developing brand identities, including logos, color schemes, and typography
+                        and creating visually appealing designs for brochures, posters, and other marketing materials.
+                    </p>
                 </div>
-            </div> -->
-            <div>
-                <img src="./images/hero img.png" alt="Bring Your Creative Ideas to Life">
+                <div class="skill">
+                    <i class="bi bi-code-slash"></i>
+                    <h3>Web Development</h3>
+                    <p>
+                        Building responsive and user-friendly websites using HTML, CSS, and JavaScript as well as CMS
+                        platforms.
+    
+                    </p>
+                </div>
+                <div class="skill">
+                    <i class="bi bi-phone"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>Designing intuitive user interfaces and enhancing user experiences for web and mobile applications.
+                    </p>
+                </div>
+                <div class="skill">
+                    <i class="bi bi-camera-reels"></i>
+                    <h3>Social Media management</h3>
+                    <p>Managing and growing social media presence by creating engaging content, scheduling posts, and
+                        analyzing performance to boost brand awareness.</p>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <section class="skills-section">
-        <h1>My Skills</h1>
-        <div class="skills-container">
-            <div class="skill">
-                <i class="bi bi-brush"></i>
-                <h3>Graphic Design (Branding)</h3>
-                <p>
-                    Developing brand identities, including logos, color schemes, and typography 
-                    and creating visually appealing designs for brochures, posters, and other marketing materials.
-                </p>
+        </section>
+    
+        <section class="portfolio-section" id="portfolio">
+            <h1>My Work</h1>
+            <div class="portfolio-container">
+                <div class="portfolio-item">
+                    <h3>Logo design</h3>
+                    <p>This logo was designed for a Baking and pastries business in Nigeria</p>
+                    <img class="portfolio-img" src="./images/Logo Dinma Cuisine2.png" width="200" alt="Portfolio Item 1">
+                    <p>These logos were conceptual designs and their briefs came from Fakeclients.com</p>
+                    <img class="portfolio-img" src="./images/Logo Cointrace.png" alt="Portfolio Item 1">
+                    <img class="portfolio-img" src="./images/Logo Goca.png" alt="Portfolio Item 1">
+                </div>
+                <div class="portfolio-item">
+                    <h3>Flyer design</h3>
+                    <p>These one-page flyers were designed for local businesses in Nigeria</p>
+                    <img class="portfolio-img" src="./images/Flyer De Kays.webp" alt="Portfolio Item 2">
+                    <img class="portfolio-img" src="./images/Flyer Khonphy Collection.webp" alt="Portfolio Item 2">
+                    <img class="portfolio-img" src="./images/Flyer dee lipcare plug bb.webp" alt="Portfolio Item 2">
+                </div>
+                <div class="portfolio-item">
+                    <h3>Web design/Frontend webpages</h3>
+                    <p>Frontend designs for landing page and multipage websites.</p>
+                    <img class="portfolio-img" src="./images/Project MoveIt.webp" alt="Portfolio Item 3">
+                    <img class="portfolio-img" src="./images/Project Invocrea8.webp" alt="Portfolio Item 3">
+                </div>
+                <div class="portfolio-item">
+                    <h3>Identity design</h3>
+                    <p>A conceptual design for SoundHome Technologies, a tech company focused on home security and
+                        home-friendly devices.</p>
+                    <img class="portfolio-img" src="./images/Carousel soundhome tech 00.webp" alt="Portfolio Item 4">
+                    <img class="portfolio-img" src="./images/Carousel soundhome tech 03.webp" alt="Portfolio Item 4">
+                    <img class="portfolio-img" src="./images/Carousel soundhome tech 05v2.webp" alt="Portfolio Item 4">
+                    <img class="portfolio-img" src="./images/Flyer Soundhome1.webp" alt="Portfolio Item 4">
+                    <img class="portfolio-img" src="./images/Flyer Soundhome2.webp" alt="Portfolio Item 4">
+                </div>
+                <div class="portfolio-item">
+                    <h3>Logo and Marketing collateral design</h3>
+                    <p>A sole proprietorship in Nigeria that is focused on the provision of materials and installation of
+                        modern home
+                        facilities reached out for a redesign of their logo and print materials.</p>
+                    <img class="portfolio-img" src="./images/Logo AnnTech.webp" alt="Portfolio Item 5">
+                    <img class="portfolio-img" src="./images/Bcard Ann Tech.webp" alt="Portfolio Item 5">
+                    <img class="portfolio-img" src="./images/Flyer Ann Tech.webp" alt="Portfolio Item 5">
+                    <img class="portfolio-img" src="./images/Flyer Ann Tech 2.webp" alt="Portfolio Item 5">
+                </div>
+                <div class="portfolio-item">
+                    <h3>Illustration</h3>
+                    <p>Some illustrations I created with Adobe Illustrator in the last quarter of 2022.</p>
+                    <img class="portfolio-img" src="./images/Illustration Meditate_1_optimized.webp" alt="Portfolio Item 6">
+                    <img class="portfolio-img" src="./images/Illustration Mount Everest.webp" alt="Portfolio Item 6">
+                </div>
             </div>
-            <div class="skill">
-                <i class="bi bi-code-slash"></i>
-                <h3>Web Development</h3>
-                <p>
-                    Building responsive and user-friendly websites using HTML, CSS, and JavaScript as well as CMS platforms.
-
-                </p>
+        </section>
+    
+        <section class="testimonials-section">
+            <h1>Testimonials</h1>
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <img class="testimonial-img" src="./images/Ann O pic.png" alt="Client Ann O">
+                    <p>"P. James did a great job redesigning our company logo, flyers and business card.
+                        He was professional, creative, and easy to work
+                        with. We highly recommend him!"</p>
+                    <h3>- Ann O. (CEO Ann Global Tech Innovation)</h3>
+                </div>
+                <div class="testimonial">
+                    <img class="testimonial-img" src="./images/Alex B pic.png" alt="Client Alex B">
+                    <p>"I hired P. James to build my website, and I couldn't be happier with the result. He listened to my
+                        needs
+                        and delivered a beautiful, functional site that exceeded my expectations."</p>
+                    <h3>- Alex B. (Business Owner)</h3>
+                </div>
+                <div class="testimonial">
+                    <img class="testimonial-img" src="./images/Precious A pic.webp" alt="Client Precious A">
+                    <p>"P. James is a talented designer who truly understands branding. He helped us create a cohesive
+                        visual
+                        identity that has made a big impact on my business."</p>
+                    <h3>- Precious A. (Dinma's Cuisine)</h3>
+                </div>
+                <div class="testimonial">
+                    <img class="testimonial-img" src="./images/Marlene D pic.png" alt="Client Joshua D">
+                    <p>"Working with P. James was a fantastic experience. He was responsive, communicative, and delivered
+                        high-quality work on time and on budget. I would definitely work with him again!"</p>
+                    <h3>- Marlene D. (Entrepreneur)</h3>
+                </div>
             </div>
-            <div class="skill">
-                <i class="bi bi-phone"></i>
-                <h3>UI/UX Design</h3>
-                <p>Designing intuitive user interfaces and enhancing user experiences for web and mobile applications.
-                </p>
-            </div>
-            <div class="skill">
-                <i class="bi bi-camera-reels"></i>
-                <h3>Social Media management</h3>
-                <p>Managing and growing social media presence by creating engaging content, scheduling posts, and
-                    analyzing performance to boost brand awareness.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="portfolio-section" id="portfolio">
-        <h1>My Work</h1>
-        <div class="portfolio-container">
-            <div class="portfolio-item">
-                <h3>Logo design</h3>
-                <p>This logo was designed for a Baking and pastries business in Nigeria</p>
-                <img class="portfolio-img" src="./images/Logo Dinma Cuisine2.png" width="200" alt="Portfolio Item 1">
-                <p>These logos were conceptual designs and their briefs came from Fakeclients.com</p>
-                <img class="portfolio-img" src="./images/Logo Cointrace.png" alt="Portfolio Item 1">
-                <img class="portfolio-img" src="./images/Logo Goca.png" alt="Portfolio Item 1">
-            </div>
-            <div class="portfolio-item">
-                <h3>Flyer design</h3>
-                <p>These one-page flyers were designed for local businesses in Nigeria</p>
-                <img class="portfolio-img" src="./images/Flyer De Kays.webp" alt="Portfolio Item 2">
-                <img class="portfolio-img" src="./images/Flyer Khonphy Collection.webp" alt="Portfolio Item 2">
-                <img class="portfolio-img" src="./images/Flyer dee lipcare plug bb.webp" alt="Portfolio Item 2">
-            </div>
-            <div class="portfolio-item">
-                <h3>Web design/Frontend webpages</h3>
-                <p>Frontend designs for landing page and multipage websites.</p>
-                <img class="portfolio-img" src="./images/Project MoveIt.webp" alt="Portfolio Item 3">
-                <img class="portfolio-img" src="./images/Project Invocrea8.webp" alt="Portfolio Item 3">
-            </div>
-            <div class="portfolio-item">
-                <h3>Identity design</h3>
-                <p>A conceptual design for SoundHome Technologies, a tech company focused on home security and
-                    home-friendly devices.</p>
-                <img class="portfolio-img" src="./images/Carousel soundhome tech 00.webp" alt="Portfolio Item 4">
-                <img class="portfolio-img" src="./images/Carousel soundhome tech 03.webp" alt="Portfolio Item 4">
-                <img class="portfolio-img" src="./images/Carousel soundhome tech 05v2.webp" alt="Portfolio Item 4">
-                <img class="portfolio-img" src="./images/Flyer Soundhome1.webp" alt="Portfolio Item 4">
-                <img class="portfolio-img" src="./images/Flyer Soundhome2.webp" alt="Portfolio Item 4">
-            </div>
-            <div class="portfolio-item">
-                <h3>Logo and Marketing collateral design</h3>
-                <p>A sole proprietorship in Nigeria that is focused on the provision of materials and installation of
-                    modern home
-                    facilities reached out for a redesign of their logo and print materials.</p>
-                <img class="portfolio-img" src="./images/Logo AnnTech.webp" alt="Portfolio Item 5">
-                <img class="portfolio-img" src="./images/Bcard Ann Tech.webp" alt="Portfolio Item 5">
-                <img class="portfolio-img" src="./images/Flyer Ann Tech.webp" alt="Portfolio Item 5">
-                <img class="portfolio-img" src="./images/Flyer Ann Tech 2.webp" alt="Portfolio Item 5">
-            </div>
-            <div class="portfolio-item">
-                <h3>Illustration</h3>
-                <p>Some illustrations I created with Adobe Illustrator in the last quarter of 2022.</p>
-                <img class="portfolio-img" src="./images/Illustration Meditate_1_optimized.webp" alt="Portfolio Item 6">
-                <img class="portfolio-img" src="./images/Illustration Mount Everest.webp" alt="Portfolio Item 6">
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonials-section">
-        <h1>Testimonials</h1>
-        <div class="testimonials-container">
-            <div class="testimonial">
-                <img class="testimonial-img" src="./images/Ann O pic.png" alt="Client Ann O">
-                <p>"P. James did a great job redesigning our company logo, flyers and business card.
-                    He was professional, creative, and easy to work
-                    with. We highly recommend him!"</p>
-                <h3>- Ann O. (CEO Ann Global Tech Innovation)</h3>
-            </div>
-            <div class="testimonial">
-                <img class="testimonial-img" src="./images/Alex B pic.png" alt="Client Alex B">
-                <p>"I hired P. James to build my website, and I couldn't be happier with the result. He listened to my
-                    needs
-                    and delivered a beautiful, functional site that exceeded my expectations."</p>
-                <h3>- Alex B. (Business Owner)</h3>
-            </div>
-            <div class="testimonial">
-                <img class="testimonial-img" src="./images/Precious A pic.webp" alt="Client Precious A">
-                <p>"P. James is a talented designer who truly understands branding. He helped us create a cohesive
-                    visual
-                    identity that has made a big impact on my business."</p>
-                <h3>- Precious A. (Dinma's Cuisine)</h3>
-            </div>
-            <div class="testimonial">
-                <img class="testimonial-img" src="./images/Marlene D pic.png" alt="Client Joshua D">
-                <p>"Working with P. James was a fantastic experience. He was responsive, communicative, and delivered
-                    high-quality work on time and on budget. I would definitely work with him again!"</p>
-                <h3>- Marlene D. (Entrepreneur)</h3>
-            </div>
-        </div>
-    </section>
-
-    <section class="about-section" id="about">
-        <h1>About Me</h1>
-        <img src="./images/my about image5.png" class="abt-img2"
-            alt="Profile photo of P. James, Graphic Designer and Front-end Developer">
+        </section>
+    
+        <section class="about-section" id="about">
+            <h1>About Me</h1>
+            <img src="./images/my about image5.png" class="abt-img2"
+                alt="Profile photo of P. James, Graphic Designer and Front-end Developer">
             <p>I'm P.James, a Graphic designer and Front-end Developer</p>
             <a class="" target="_blank" href="./Resume/resume 3.html">
                 <button type="button">View my Resume</button>
             </a>
-        <div class="about-container">
-            <!-- <img class="about-img item-e" src="./images/my about image5.png" alt="my about image"> -->
-            <div class="about-item item-a">
-                <h3>Background</h3>
-                <p>I hold a Bachelor of Science degree in Computer Science from the University of Calabar, Nigeria.
-                    However, my
-                    passion for creativity and technology led me to pursue a career in graphic design and web
-                    development.
-                    I have since honed my skills through various online courses and practical experience.</p>
+            <div class="about-container">
+                <!-- <img class="about-img item-e" src="./images/my about image5.png" alt="my about image"> -->
+                <div class="about-item item-a">
+                    <h3>Background</h3>
+                    <p>I hold a Bachelor of Science degree in Computer Science from the University of Calabar, Nigeria.
+                        However, my
+                        passion for creativity and technology led me to pursue a career in graphic design and web
+                        development.
+                        I have since honed my skills through various online courses and practical experience.</p>
+                </div>
+                <div class="about-item item-b">
+                    <h3>Hobbies</h3>
+                    <p>In my free time, I enjoy learning about the latest web development technologies, exploring new design
+                        trends, and experimenting with different art styles.
+                        I also love chess, music, and
+                        spending time with my family and friends.</p>
+                </div>
+                <div class="about-item item-c">
+                    <h3>Values</h3>
+                    <p>I believe in the power of creativity to solve problems and make a positive impact on the world. I am
+                        committed to delivering high-quality work that meets my clients' needs and exceeds their
+                        expectations.
+                        I value honesty, integrity, and open communication in all my professional relationships.</p>
+                </div>
+                <div class="about-item item-d">
+                    <h3>Goals</h3>
+                    <p>My goal is to continue growing as a designer and developer, taking on new challenges and expanding my
+                        skillset. I aspire to work with clients from diverse industries and backgrounds, helping them
+                        achieve
+                        their business objectives through effective design and technology solutions.</p>
+                </div>
             </div>
-            <div class="about-item item-b">
-                <h3>Hobbies</h3>
-                <p>In my free time, I enjoy learning about the latest web development technologies, exploring new design trends, and experimenting with different art styles.
-                     I also love chess, music, and
-                    spending time with my family and friends.</p>
-            </div>
-            <div class="about-item item-c">
-                <h3>Values</h3>
-                <p>I believe in the power of creativity to solve problems and make a positive impact on the world. I am
-                    committed to delivering high-quality work that meets my clients' needs and exceeds their
-                    expectations.
-                    I value honesty, integrity, and open communication in all my professional relationships.</p>
-            </div>
-            <div class="about-item item-d">
-                <h3>Goals</h3>
-                <p>My goal is to continue growing as a designer and developer, taking on new challenges and expanding my
-                    skillset. I aspire to work with clients from diverse industries and backgrounds, helping them
-                    achieve
-                    their business objectives through effective design and technology solutions.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="footer-container">
-            <div class="footer-item">
-                <!-- Contact Info -->
+        </section>
+    
+        <footer id="contact">
+            <div class="footer-container">
+                <div class="footer-item">
+                    <!-- Contact Info -->
                     <h2 class="c-header">How can I help you today?</h2>
-                    <p class="c-paragraph">Send a quick whatsapp message, email me, or use the form below to tell me about your project. I try to
+                    <p class="c-paragraph">Send a quick whatsapp message, email me, or use the form below to tell me about
+                        your
+                        project. I try to
                         respond within one
-                        business day. If my current availability doesn’t fit your time frame, I’ll try to refer you to someone else who can help. <br>
+                        business day. If my current availability doesn’t fit your time frame, I’ll try to refer you to
+                        someone
+                        else who can help. <br>
                         I'd love to hear about your project!
                     </p>
                     <div class="c-buttons">
@@ -244,46 +340,67 @@
                             </button>
                         </a>
                     </div>
-            </div>
-            <div class="footer-item">
-                <form action="https://formspree.io/f/mgvparyl" method="POST" id="myForm">
-                    <h2>Compose a message</h2>
-                    <div class="form-control">
-                        <label for="text">Name</label>
-                        <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
-                        <label for="email">Email</label>
-                        <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
-                        <label for="subject">Subject</label>
-                        <input type="text" name="subject" placeholder="Service you need" class="contact-inputs" required>
-                        <label for="message">Message</label>
-                        <textarea name="message" rows="5" placeholder="Detailed Message" class="contact-inputs" required></textarea>
-                        <div class="form-btn">
-                            <button type="submit" class="submit btn btn-secondary" onclick="return submitForm();">
-                                Submit <i class="bi bi-send"></i>
-                            </button>
-                        </div>
-                </form>
-            
-        </div>
-        <div class="social-links">
-            <a href="https://web.facebook.com/victor.da.maximus01" aria-label="Facebook">
-                <i class="bi bi-facebook"></i>
-            </a>
-            <a href="https://www.instagram.com/the_newtonian01/" aria-label="Instagram">
-                <i class="bi bi-instagram"></i>
-            </a>
-            <a href="https://github.com/TheNewtonian" aria-label="Github">
-                <i class="bi bi-github"></i>
-            </a>
-        </div>
-        <p class="footer-p">&copy; <span id="year">2025</span> P.James @ Invocrea8 </p>
-    </footer>
+                </div>
+                <div class="footer-item">
+                    <form action="https://formspree.io/f/mgvparyl" method="POST" id="myForm">
+                        <h2>Compose a message</h2>
+                        <div class="form-control">
+                            <label for="text">Name</label>
+                            <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
+                            <label for="email">Email</label>
+                            <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
+                            <label for="subject">Subject</label>
+                            <input type="text" name="subject" placeholder="Service you need" class="contact-inputs"
+                                required>
+                            <label for="message">Message</label>
+                            <textarea name="message" rows="5" placeholder="Detailed Message" class="contact-inputs"
+                                required></textarea>
+                            <div class="form-btn">
+                                <button type="submit" class="submit btn btn-secondary" onclick="return submitForm();">
+                                    Submit <i class="bi bi-send"></i>
+                                </button>
+                            </div>
+                    </form>
+    
+                </div>
+                <div class="social-links">
+                    <a href="https://web.facebook.com/victor.da.maximus01" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/the_newtonian01/" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://github.com/TheNewtonian" aria-label="Github">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </div>
+                <p class="footer-p">&copy; <span id="year">2025</span> P.James @ Invocrea8 </p>
+        </footer>
+    
+        <a href="#top" title="Go to top">
+            <button id="topBtn" aria-label="Back to top">
+                <i class="bi bi-arrow-up-circle-fill"></i>
+            </button>
+        </a>
+    </div>
 
-    <a href="#top" title="Go to top">
-        <button id="topBtn" aria-label="Back to top">
-            <i class="bi bi-arrow-up-circle-fill"></i>
-        </button>
-    </a>
+    <script>
+        // This waits for the entire page to be loaded, including images and scripts
+        window.onload = function () {
+
+            // 1. Find the preloader element
+            const preloader = document.getElementById('preloader');
+
+            // 2. Find the main content element
+            const mainContent = document.getElementById('main-content');
+
+            // 3. Add the 'hidden' class to the preloader to fade it out
+            preloader.classList.add('hidden');
+
+            // 4. Remove the 'blurred' class from the main content to un-blur it
+            mainContent.classList.remove('blurred');
+        };
+    </script>
     <script>
             // Set current year in footer
             document.getElementById("year").textContent = new Date().getFullYear();
