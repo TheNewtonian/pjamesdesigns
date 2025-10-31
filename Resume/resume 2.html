@@ -259,6 +259,24 @@
     footer .center {
       text-align: center;
     }
+
+    /* NEW: Style for the external link arrow */
+    .external-link-arrow {
+      text-decoration: none;
+      /* Prevents underline on the arrow */
+      font-size: 0.9em;
+      /* Makes it slightly smaller */
+      margin-left: 3px;
+      /* Adds a bit of space */
+      display: inline-block;
+      /* Helps with alignment */
+      transition: transform 0.2s ease-out;
+    }
+
+    /* Add a subtle "move" effect on hover */
+    .degree a:hover .external-link-arrow {
+      transform: translate(2px, -2px);
+    }
   </style>
 
 <body>
@@ -392,11 +410,17 @@
           <div class="section-title">Certifications</div>
           <div class="card">
             <ul>
-              <li>Google IT Support Professional Certificate (Coursera) - Completed March 2024</li>
+              <!-- <li>Google IT Support Professional Certificate (Coursera) - Completed March 2024</li>
               <li>Introduction to HTML5 (W3C / Coursera) - Completed December 2022</li>
               <li>Introduction to CSS3 (W3C / Coursera) - Completed January 2023</li>
               <li>JavaScript Basics (W3C / Coursera) - Completed February 2023</li>
-              <li>Graphic Design Basics (Coursera) - Completed May 2022</li>
+              <li>Graphic Design Basics (Coursera) - Completed May 2022</li> -->
+              <li class="degree">
+                <a href="https://www.udemy.com/certificate/UC-f845ceb2-15bc-4e60-be75-2b5024c1ecba/" target="_blank"
+                  rel="noopener noreferrer">
+                  The Complete Full-Stack Web Development Bootcamp <span class="external-link-arrow">&nearr;</span>
+                </a>
+              </li>
             </ul>
           </div>
         </section>
