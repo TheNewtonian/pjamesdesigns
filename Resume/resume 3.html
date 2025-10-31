@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P. James - Resume</title>
+
+  <!-- 
+      STYLE SECTION:
+      All CSS is placed here in the <head> tag.
+      
+      NEW: 
+      - Added CSS Variables (e.g., var(--bg-page)) for light/dark themes.
+      - Added styles for the dark theme under the `body.dark-mode` selector.
+      - Added styles for the profile picture and the theme switcher toggle.
+    -->
+  <style>
+    /* --- 1. CSS Variables (Color Palette) --- */
+    :root {
+      --bg-page: #f9f9f9;
+      --bg-container: #ffffff;
+      --text-primary: #333;
+      --text-secondary: #555;
+      --text-heading: #111;
+      /* UPDATED: Set to the new purple */
+      --accent-color: #6d00a7;
+      --border-color: #eee;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --switch-bg: #ccc;
+      --switch-knob: #fff;
+    }
+
+    body.dark-mode {
+      --bg-page: #121212;
+      --bg-container: #1e1e1e;
+      --text-primary: #e0e0e0;
+      --text-secondary: #aaaaaa;
+      --text-heading: #ffffff;
+      /* UPDATED: Set to a lighter purple for dark mode */
+      --accent-color: #b366ff;
+      --border-color: #333;
+      --shadow-color: #444;
+      --switch-bg: #555;
+      --switch-knob: #ccc;
+    }
+
+    /* --- 2. General Body & Layout Styles --- */
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+      position: relative;
+      /* For positioning the theme switcher */
+      background-color: var(--bg-container);
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px var(--shadow-color);
+      transition: background-color 0.3s;
+    }
+
+    /* --- 3. Theme Switcher (NEW) --- */
+    .theme-switcher {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .theme-switcher-label {
+      font-size: 0.8em;
+      color: var(--text-secondary);
+      margin-right: 8px;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      /* Reduced size */
+      height: 24px;
+      /* Reduced size */
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--switch-bg);
+      transition: 0.4s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      /* Reduced size */
+      width: 18px;
+      /* Reduced size */
+      left: 3px;
+      /* Adjusted position */
+      bottom: 3px;
+      /* Adjusted position */
+      background-color: var(--switch-knob);
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked+.slider {
+      background-color: var(--accent-color);
+    }
+
+    input:checked+.slider:before {
+      transform: translateX(20px);
+      /* Adjusted translation */
+    }
+
+    /* --- 4. Header & Contact Info --- */
+    .header {
+      text-align: center;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    /* NEW: Profile picture style */
+    .profile-pic {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid var(--border-color);
+      box-shadow: 0 2px 4px var(--shadow-color);
+      margin-bottom: 15px;
+      object-fit: cover;
+    }
+
+    .darkimg {
+      display: none;
+    }
+
+    .dark-mode .lightimg {
+      display: none;
+    }
+
+    .dark-mode .darkimg {
+      display: inline-block;
+    }
+    
+    .header h1 {
+      margin: 0;
+      color: var(--text-heading);
+      font-size: 2.5em;
+    }
+
+    .job-title {
+      font-size: 1.25em;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text-secondary);
+      margin: 5px 0;
+    }
+
+    .contact-info {
+      font-size: 0.9em;
+      color: var(--text-secondary);
+    }
+
+    .contact-info a {
+      color: var(--accent-color);
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- 5. General Section Styling --- */
+    section {
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 0;
+    }
+
+    p,
+    li {
+      color: var(--text-primary);
+    }
+
+    /* --- 6. Skills Section --- */
+    .skills-grid {
+      display: grid;
+      /* Responsive columns: 1 on small, 2 on larger */
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    /* Media query: for screens wider than 500px */
+    @media (min-width: 500px) {
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .skills-grid h3 {
+      font-size: 1.0em;
+      color: var(--text-heading);
+      margin-bottom: 5px;
+    }
+
+    .skills-grid ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    /* --- 7. Experience & Projects Section --- */
+    .job {
+      margin-bottom: 20px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .job-header .date {
+      font-style: italic;
+      font-size: 0.9em;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      padding-left: 10px;
+    }
+
+    .job-location {
+      font-style: italic;
+      font-size: 0.9em;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* --- 8. Education Section --- */
+    .education-entry {
+      margin-bottom: 10px;
+    }
+
+    .education-entry p {
+      margin: 2px 0;
+    }
+
+    .degree {
+      font-weight: bold;
+      color: var(--text-primary);
+    }
+
+    /* NEW: Make sure links inside the degree element use the accent color */
+    .degree a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .degree a:hover {
+      text-decoration: underline;
+    }
+
+    /* NEW: Style for the external link arrow */
+    .external-link-arrow {
+      text-decoration: none;
+      /* Prevents underline on the arrow */
+      font-size: 0.9em;
+      /* Makes it slightly smaller */
+      margin-left: 3px;
+      /* Adds a bit of space */
+      display: inline-block;
+      /* Helps with alignment */
+      transition: transform 0.2s ease-out;
+    }
+
+    /* Add a subtle "move" effect on hover */
+    .degree a:hover .external-link-arrow {
+      transform: translate(2px, -2px);
+    }
+
+    /* NEW: Style for the education date */
+    .education-date {
+      font-style: italic;
+      font-size: 0.9em;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* --- 9. Footer --- */
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      /* Add some space above the footer */
+      border-top: 1px solid var(--border-color);
+      /* Add a separator line */
+      font-size: 0.85em;
+      color: var(--text-secondary);
+    }
+
+    .footer-content {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .copyright {
+      font-weight: 500;
+      /* Make the copyright slightly bolder */
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- 
+          NEW: Theme Switcher HTML
+          This is the toggle itself. The JavaScript will listen for changes to this.
+        -->
+    <div class="theme-switcher">
+      <span class="theme-switcher-label">Dark Mode</span>
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode" role="switch">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <header class="header">
+
+      <!-- 
+              NEW: Profile Picture
+              This is a placeholder. 
+              **You MUST replace the `src`** with a URL to your own professional photo.
+            -->
+      <img src="assets/images/profile image4.png" alt="Profile Picture" class="profile-pic lightimg">
+      <img src="assets/images/my profile image3b.png" alt="Profile Picture" class="profile-pic darkimg">
+
+      <h1>P. James</h1>
+
+      <!-- 
+              UPDATED: 
+              Set a strong, general-purpose title.
+              You can still change this to be more specific when applying!
+            -->
+      <p class="job-title">Digital Solutions Professional</p>
+
+      <div class="contact-info">
+        <!-- UPDATED: Changed placeholder to international format -->
+        +234 703 330 2085 |
+        <a href="mailto:pjames1643@gmail.com">pjames1643@gmail.com</a> |
+        <!-- <a href="https://linkedin.com/in/[YourProfile]" target="_blank" rel="noopener">LinkedIn</a> | -->
+        <a href="https://github.com/TheNewtonian" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </header>
+
+    <main>
+
+      <section class="summary">
+        <h2>Professional Summary</h2>
+        <p>
+          Creative and technically curious early-career professional skilled at transforming creative concepts into
+          functional solutions. Proven experience in visual design, front-end development, and IT support, having
+          delivered key digital design assets at a tech firm and provided hands-on IT training. Seeking an entry-level
+          position to contribute to innovative digital projects.
+        </p>
+      </section>
+      <!-- For a Job at a Bank
+What they care about: Security, reliability, attention to detail, professionalism, supporting internal staff.
+
+Your current summary focuses on "creativity" and "digital projects," which a bank manager might see as irrelevant. You need to shift the focus to your IT Support, training, and problem-solving skills.
+
+Your new summary would look like this:
+
+"Detail-oriented and security-conscious technical professional with proven experience in IT support, user training, and system troubleshooting across Windows and Linux. Eager to leverage strong analytical and problem-solving skills to ensure reliable operations and support staff at a fast-paced financial institution."
+
+Why this works:
+
+It immediately uses keywords they love: "Detail-oriented," "security-conscious," and "reliable operations."
+
+It highlights your exact relevant experience: "IT support, user training, and system troubleshooting."
+
+2. For a Job at a School
+What they care about: Education, patience, training, reliability, helping students and staff.
+
+For this, you have perfect experience from your NYSC. You should lead with that!
+
+Your new summary would look like this:
+
+"Dedicated and patient professional with direct experience in education, IT support, and curriculum development. Passionate about technology in the classroom, with a proven ability to teach computer literacy skills to students and train staff. Seeking a teaching or technical support role to help foster a positive learning environment."
+
+Why this works:
+
+It leads with your "education" experience.
+
+It highlights your exact relevant skills: "teach computer literacy," "curriculum development," and "train staff."
+
+It uses keywords they love: "patient," "passionate," and "learning environment."
+
+Think of your summary as the "trailer" for your resume. You have to show the hiring manager the best parts for them in the first 10 seconds. The "Digital Solutions Professional" title is a great default, but you should absolutely change it to "IT Support Analyst" or "Computer Teacher" to match the job you want. -->
+
+      <section class="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div>
+            <h3>Technical Skills</h3>
+            <ul>
+              <li>HTML5, CSS3, JavaScript (ES6+)</li>
+              <li>Responsive Web Design</li>
+              <!-- <li>Python (Scripting)</li> -->
+              <li>Git & GitHub</li>
+              <li>Bootstrap</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Design Tools</h3>
+            <ul>
+              <li>Figma</li>
+              <li>Adobe Illustrator</li>
+              <li>Adobe Photoshop</li>
+              <li>Canva</li>
+              <li>Visual Branding</li>
+            </ul>
+          </div>
+          <div>
+            <h3>IT & Support Skills</h3>
+            <ul>
+              <li>Hardware Troubleshooting</li>
+              <li>Software Installation & Config</li>
+              <li>Network Basics & Setup</li>
+              <li>Help Desk Support</li>
+              <li>Technical Training</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Soft Skills</h3>
+            <ul>
+              <li>Problem-Solving</li>
+              <li>Client Communication</li>
+              <li>Teamwork & Collaboration</li>
+              <li>Adaptability</li>
+              <li>Attention to Detail</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience">
+        <h2>Professional Experience</h2>
+
+        <article class="job">
+          <div class="job-header">
+            <h3>Freelance Graphic Designer</h3>
+            <span class="date">Ongoing</span>
+          </div>
+          <p class="job-location">Various Clients</p>
+          <ul>
+            <li>Design logos, social media graphics, and marketing materials for small businesses and individuals.</li>
+            <li>Communicate with clients to understand their design needs and deliver high-quality work on time.</li>
+            <li>Build a portfolio of diverse design projects showcasing creativity and technical skills.</li>
+            <li>Manage multiple projects simultaneously while maintaining clear communication with clients.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-header">
+            <h3>IT Support / Trainer</h3>
+            <span class="date">January 2024 - May 2024</span>
+          </div>
+          <p class="job-location">Bernol, Ibadan (Oyo State)</p>
+          <ul>
+            <li>Provided desktop and network troubleshooting, system setup and user support across Windows and Linux
+              environments.</li>
+            <li>Delivered hands-on training sessions for staff on office software, basic networking and security best
+              practices.</li>
+            <li>Created simple how-to guides and onboarding materials to speed up user adoption.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-header">
+            <h3>Visual Creative (Graphic Designer)</h3>
+            <span class="date">June 2023 - December 2023</span>
+          </div>
+          <p class="job-location">Axum Technologies, Calabar</p>
+          <ul>
+            <li>Produced marketing visuals, social media graphics and UI mockups for web and mobile products.</li>
+            <li>Worked closely with product and engineering teams to ensure visual assets aligned with product goals.
+            </li>
+            <li>Prepared print-ready files and managed brand asset libraries and design systems.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-header">
+            <h3>Front-end Web Developer Intern</h3>
+            <span class="date">September 2022 - December 2022</span>
+          </div>
+          <p class="job-location">Decent IT Services (DITS), Port Harcourt</p>
+          <ul>
+            <li>Assisted in developing and maintaining company websites using HTML, CSS, and basic JavaScript.</li>
+            <li>Collaborated with senior developers to implement responsive design and improve user experience.</li>
+            <li>Conducted website testing and debugging to ensure cross-browser compatibility.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-header">
+            <h3>Graphic Design Intern</h3>
+            <span class="date">June 2022 - August 2022</span>
+          </div>
+          <p class="job-location">Decent IT Services (DITS), Port Harcourt</p>
+          <ul>
+            <li>Assisted in creating visual content for social media, marketing materials, and website graphics.</li>
+            <li>Collaborated with the design team to brainstorm and develop creative concepts.</li>
+            <li>Learned to use design software such as Adobe Photoshop and Illustrator.</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- 
+              NEW SECTION: 
+              Adding the detailed NYSC experience as its own section,
+              as requested by the user.
+            -->
+      <section class="experience">
+        <h2>National Youth Service Corps (NYSC)</h2>
+
+        <article class="job">
+          <div class="job-header">
+            <h3>Community Development Service</h3>
+            <span class="date">August 2024 - August 2025</span>
+          </div>
+          <p class="job-location">Kagarko, Kaduna State</p>
+          <ul>
+            <li>Participating in community development projects and skill acquisition programs as part of the NYSC
+              initiative.</li>
+            <li>Engaging in activities that promote national unity and social cohesion.</li>
+            <li>Contributing my skills and knowledge to benefit the local community during my service year.</li>
+            <li>Developing professionally through workshops and training sessions organized by NYSC.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-header">
+            <h3>School Teacher (Place of Primary Assignment)</h3>
+            <span class="date">August 2024 - August 2025</span>
+          </div>
+          <p class="job-location">Usman Foundation Academy, Jere, Kaduna State</p>
+          <ul>
+            <li>Teaching basic computer literacy skills to students.</li>
+            <li>Preparing lesson plans and instructional materials.</li>
+            <li>Conducting classes and assessing student progress.</li>
+            <li>Organizing extracurricular activities related to technology and computer skills.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="projects">
+        <h2>Projects</h2>
+
+        <article class="job">
+          <!-- NEW: This is the primary project now -->
+          <h3>Gas Leakage Detection System (Final-Year Project)</h3>
+          <p class="job-location">Undergraduate project</p>
+          <ul>
+            <li>Designed and built an Arduino-based gas-leak detection system with GSM module integration to send SMS
+              alerts when hazardous levels are detected.</li>
+            <li>Implemented sensor calibration, alert logic, and an SMS-based notification workflow for rapid response.
+            </li>
+          </ul>
+        </article>
+
+        <!-- 
+                  COMMENTED OUT: 
+                  The previous project is now hidden but saved in the code.
+                -->
+        <!--
+                <article class="job">
+                    <h3>Car Leakage Detection System (Final Year Project)</h3>
+                    <ul>
+                        <li>Designed and developed a prototype for an Arduino-based system to detect and alert users to car oil and water leakages.</li>
+                        <li>Integrated sensors and notification modules, programming the microcontroller to monitor fluid levels and trigger alerts.</li>
+                    </ul>
+                </article>
+                -->
+      </section>
+
+      <!-- 
+              NEW SECTION: Volunteer Experience
+              This is a great place to show soft skills, passion,
+              and community involvement.
+            -->
+      <section class="volunteering">
+        <h2>Volunteer Experience</h2>
+
+        <article class="job">
+          <div class="job-header">
+            <!-- UPDATED: Added volunteer role -->
+            <h3>Independent Cluster Supervisor (ICS)</h3>
+            <!-- UPDATED: Added dates -->
+            <span class="date">April & June 2025</span>
+          </div>
+          <!-- UPDATED: Added organization and location -->
+          <p class="job-location">World Health Organization (NIPDs) - Jere, Kaduna, Nigeria</p>
+          <ul>
+            <!-- UPDATED: Added bullet points -->
+            <li>Supervised field health teams during the NIPDs Campaign.</li>
+            <li>Assisted in resolving issues and challenges faced by field teams.</li>
+            <li>Provided feedback and reports to higher-level supervisors.</li>
+            <li>Ensured compliance with health and safety protocols and ensured accurate data collections.</li>
+          </ul>
+        </article>
+
+        <!-- You can copy the <article class="job">...</article> block above to add another role -->
+
+      </section>
+
+      <section class="education">
+        <h2>Education</h2>
+
+        <div class="education-entry">
+          <!-- UPDATED: Changed degree -->
+          <p class="degree">BSc, Computer Science</p>
+          <!-- UPDATED: Changed university and location -->
+          <p>University of Calabar - Calabar, Cross Rivers State</p>
+          <!-- UPDATED: Added graduation date -->
+          <p class="education-date">Graduated: May 2023</p>
+        </div>
+      </section>
+
+      <!-- 
+              NEW SECTION: Certifications
+              Separated from formal education for clarity and professionalism.
+              I'm re-using the 'education-entry' class for consistent styling.
+            -->
+      <section class="certifications">
+        <h2>Certifications</h2>
+
+        <div class="education-entry">
+          <p class="degree">
+            <a href="https://www.udemy.com/certificate/UC-f845ceb2-15bc-4e60-be75-2b5024c1ecba/" target="_blank"
+              rel="noopener noreferrer">
+              The Complete Full-Stack Web Development Bootcamp <span class="external-link-arrow">&nearr;</span>
+            </a>
+          </p>
+          <!-- UPDATED: Changed provider to Udemy -->
+          <p>Udemy</p>
+        </div>
+
+        <!--
+                <div class="education-entry">
+                    <p class="degree">
+                        Complete Python Bootcamp
+                    </p>
+                    <p>Udemy</p>
+                </div>
+                -->
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        Last updated: <span id="last-updated"></span>. <br>
+        Built with HTML, CSS, and passion for clean design.
+      </div>
+      <div class="copyright">
+        &copy; 2025 P. James @ Invocrea8
+      </div>
+    </footer>
+
+  </div> <!-- End .container -->
+
+  <!-- 
+      JAVASCRIPT SECTION:
+      This script handles two things:
+      1. Setting the "last updated" date in the footer.
+      2. Handling the dark mode toggle and saving the choice in localStorage.
+    -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // --- 1. Set Last Updated Date ---
+      const updatedEl = document.getElementById('last-updated');
+      if (updatedEl) {
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long'};
+        const formattedDate = today.toLocaleDateString('en-US', options);
+        updatedEl.textContent = formattedDate;
+      }
+
+      // --- 2. Dark Mode Toggle Logic ---
+      const themeToggle = document.getElementById('theme-toggle');
+      const body = document.body;
+
+      // Function to apply the saved theme
+      function applyTheme(theme) {
+        if (theme === 'dark') {
+          body.classList.add('dark-mode');
+          if (themeToggle) themeToggle.checked = true;
+        } else {
+          body.classList.remove('dark-mode');
+          if (themeToggle) themeToggle.checked = false;
+        }
+      }
+
+      // Check for saved theme in localStorage
+      const savedTheme = localStorage.getItem('theme');
+
+      if (savedTheme) {
+        // 1. If user has a saved choice in localStorage, use it
+        applyTheme(savedTheme);
+      } else {
+        // 2. If no saved choice, check system preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? 'dark' : 'light');
+      }
+
+      // Add listener for the toggle
+      if (themeToggle) {
+        themeToggle.addEventListener('change', function () {
+          const newTheme = this.checked ? 'dark' : 'light';
+          applyTheme(newTheme);
+          // Save the user's choice
+          localStorage.setItem('theme', newTheme);
+        });
+      }
+    });
+  </SCripT>
+
+</body>
+
+</html>
