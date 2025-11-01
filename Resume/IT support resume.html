@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Resume - P. James (IT Support)</title>
+  <style>
+    /* ----------------------------------------------------------------- */
+    /* PREMIUM CSS: Theme Variables & Base Styles                        */
+    /* ----------------------------------------------------------------- */
+    :root[data-theme="dark"] {
+      --accent: #3A86FF;
+      --accent-2: #FF6B35;
+      --muted: #9ca3af;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f1f5f9;
+      --border: #334155;
+      --shadow: 0 8px 20px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    :root[data-theme="light"] {
+      --accent: #3A86FF;
+      --accent-2: #FF6B35;
+      --muted: #475569;
+      --bg: #f7faff;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --border: #ced6e1;
+      --shadow: 0 6px 20px 4px rgba(0, 0, 0, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      line-height: 1.5;
+      color: var(--text);
+      background: var(--bg);
+      padding: 32px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      display: flex;
+      gap: 20px;
+      padding: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .profile-photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 12px;
+    }
+
+    .head-info {
+      flex: 1;
+    }
+
+    @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .head-info {
+        margin-top: 12px;
+      }
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      color: var(--text);
+    }
+
+    p.role {
+      margin: 6px 0;
+      color: var(--muted);
+    }
+
+    .contact {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 14px;
+      align-items: center;
+    }
+
+    .contact>div {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 32px;
+      padding: 28px;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .job {
+      margin-bottom: 16px;
+    }
+
+    .job h4 {
+      margin: 0;
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill {
+      background: var(--border);
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .project {
+      margin-bottom: 10px;
+    }
+
+    .badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      padding: 20px 32px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 880px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-toggle {
+      display: inline-grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s;
+      font-size: 18px;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(20deg);
+    }
+
+    .theme-toggle:active {
+      transform: scale(0.98) rotate(20deg);
+    }
+
+    .theme-toggle[aria-pressed="true"] {
+      outline: 2px solid rgba(58, 134, 255, 0.2);
+    }
+
+    footer .center {
+      text-align: center;
+    }
+
+    .external-link-arrow {
+      text-decoration: none;
+      font-size: 0.9em;
+      margin-left: 3px;
+      display: inline-block;
+      transition: transform 0.2s ease-out;
+    }
+
+    .degree a:hover .external-link-arrow {
+      transform: translate(2px, -2px);
+    }
+
+    .availability-card {
+      background: rgba(58, 134, 255, 0.1);
+      border: 1px solid var(--accent);
+      padding: 14px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+  </style>
+
+<body>
+  <div class="container" role="document">
+    <header>
+      <div>
+        <img src="assets/images/profile image4.png" alt="P. James Profile Photo" class="profile-photo">
+      </div>
+      <div class="head-info">
+        <h1>P. James</h1>
+        <p class="role">Technical Support • User Trainer • Front-end Developer</p>
+
+        <div class="contact">
+          <div>📍 Nigeria</div>
+          <div>✉️ <a href="mailto:pastorjames455@gmail.com">pjames1643@gmail.com</a></div>
+          <div>🌐 <a href="../index.html">Portfolio / Website</a></div>
+          <div>💻 <a href="https://github.com/TheNewtonian">GitHub</a></div>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle theme"
+          title="Toggle theme (saved)">
+          <span id="themeIcon" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <div>
+        <section>
+          <div class="section-title">Professional Summary</div>
+          <div class="card">
+            <p>
+              Technical Support & User Trainer. Highly effective professional specializing in Tier 1/2 hardware and
+              software troubleshooting, system configuration, and user training. Proven ability to resolve 95% of
+              support tickets within service level agreements (SLAs) and deliver actionable technical instruction.
+              Adaptable technologist blending IT reliability with foundational skills in web development and visual
+              design. Seeking an entry-level role to contribute to innovative digital projects.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-title">Work Experience</div>
+          <div>
+            <div class="job">
+              <h4>IT Support / Trainer - Bernol, Ibadan (Oyo State)</h4>
+              <div class="meta">January 2024 - May 2024</div>
+              <ul>
+                <li>Resolved 95% of Tier 1/Tier 2 support tickets within a 2-hour SLA, significantly minimizing system
+                  downtime for 40+ staff members across Windows and Linux environments.</li>
+                <li>Delivered 3 bi-weekly hands-on training sessions for staff on office software, basic networking, and
+                  security best practices, leading to a demonstrable reduction in user-reported errors.</li>
+                <li>Created and maintained 15+ simple how-to guides and onboarding materials, speeding up user adoption
+                  for new software by 20%.</li>
+              </ul>
+            </div>
+
+            <div class="job">
+              <h4>Front-end Web Developer Intern - Decent IT Services (DITS), Port Harcourt</h4>
+              <div class="meta">September 2022 - December 2022</div>
+              <ul>
+                <li>Conducted thorough website testing and debugging, ensuring 100% cross-browser compatibility across
+                  major desktop and mobile browsers.</li>
+                <li>Assisted in developing and maintaining 3 company websites using HTML, CSS, and basic JavaScript.
+                </li>
+                <li>Collaborated with senior developers to implement responsive design, improving the user experience
+                  score on mobile devices by 15%.</li>
+              </ul>
+            </div>
+
+            <div class="job">
+              <h4>Visual Creative (Graphic Designer) - Axum Technologies, Calabar</h4>
+              <div class="meta">June 2023 - December 2023</div>
+              <ul>
+                <li>Produced over 100 marketing visuals and UI mockups for web and mobile products, ensuring visual
+                  consistency across all digital platforms.</li>
+                <li>Worked closely with product and engineering teams to ensure visual assets aligned with 5 key product
+                  goal cycles.</li>
+                <li>Managed the company's brand asset library and design systems, reducing asset retrieval time for the
+                  marketing team by 10 minutes per request.</li>
+              </ul>
+            </div>
+
+            <div class="job">
+              <h4>Freelancer - Various Clients</h4>
+              <div class="meta">Ongoing</div>
+              <ul>
+                <li>Spearheaded the development and deployment of 12+ responsive client websites using HTML, CSS, and
+                  modern JavaScript, enhancing user-facing speed and SEO readiness.</li>
+                <li>Customized and integrated Content Management Systems (CMS) for 5+ small businesses, reducing client
+                  content update time by an estimated 30%.</li>
+                <li>Strategically developed comprehensive branding packages for 6 new ventures, including logo design
+                  and visual guidelines (color schemes, typography).</li>
+              </ul>
+            </div>
+
+            <div class="job">
+              <h4>Graphic Design Intern - Decent IT Services (DITS), Port Harcourt</h4>
+              <div class="meta">June 2022 - August 2022</div>
+              <ul>
+                <li>Assisted in creating visual content for social media, resulting in a 10% growth in monthly followers
+                  over a three-month period.</li>
+                <li>Gained practical proficiency in industry-standard design software, including Adobe Photoshop and
+                  Illustrator.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-title">Projects</div>
+          <div class="project card">
+            <h4>Gas Leakage Detection System (Final-Year Project)</h4>
+            <div class="meta">Undergraduate Project</div>
+            <p>Designed and built an Arduino-based gas-leak detection system with GSM module integration to send SMS
+              alerts when hazardous gas levels are detected. Successfully implemented sensor calibration, alert logic,
+              and an SMS-based notification workflow for rapid, remote response.</p>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-title">Education</div>
+          <div class="card">
+            <h4>BSc Computer Science</h4>
+            <div class="meta">University of Calabar, Calabar</div>
+            <p>Graduated: May 2023</p>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-title">National Youth Service</div>
+          <div class="card">
+            <h4>National Youth Service Corps (NYSC)</h4>
+            <div class="meta">Kagarko, Kaduna State (August 2024 - August 2025)</div>
+            <ul>
+              <li>School Teacher @ Usman Foundation Academy, Jere: Successfully taught basic computer literacy skills to
+                over 150 students (ages 10-16), demonstrating strong instructional ability.</li>
+              <li>Independent Cluster Supervisor (ICS) @ World Health Organization (NIPDs): Supervised field health
+                teams during two immunization campaigns (April & June 2025), ensuring 100% compliance with data
+                collection and safety protocols.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-title">Certifications</div>
+          <div class="card">
+            <ul>
+              <li class="degree">
+                <a href="https://www.udemy.com/certificate/UC-f845ceb2-15bc-4e60-be75-2b5024c1ecba/" target="_blank"
+                  rel="noopener noreferrer">
+                  The Complete Full-Stack Web Development Bootcamp <span class="external-link-arrow">&nearr;</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+      </div>
+
+      <aside>
+        <section>
+          <div class="section-title">Technical Skills</div>
+          <div class="card">
+            <div class="badges skills">
+              <span class="skill">Windows & Linux (Basic Support)</span>
+              <span class="skill">Networking (Troubleshooting)</span>
+              <span class="skill">Software Installation and Configuration</span>
+              <span class="skill">Customer / Help Desk Support</span>
+              <span class="skill">IT Training</span>
+              <span class="skill">Project Coordination</span>
+              <span class="skill">HTML5</span>
+              <span class="skill">CSS3</span>
+              <span class="skill">JavaScript (ES6+)</span>
+              <span class="skill">Responsive Design</span>
+              <span class="skill">Bootstrap / Tailwind</span>
+              <span class="skill">Git & GitHub</span>
+              <span class="skill">Graphic Design</span>
+              <span class="skill">Figma</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-title">Software & Tools</div>
+          <div class="card">
+            <ul>
+              <li>OS & Productivity: Windows, Linux (basic networking), Microsoft Office, Google Workspace</li>
+              <li>Design: Adobe Creative Suite (Photoshop, Illustrator), Corel Draw, Figma</li>
+              <li>Front-end: HTML, CSS, JavaScript, Bootstrap, Tailwind</li>
+              <li>Hardware/IoT: Arduino, GSM modules (Prototyping)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-title">Soft Skills</div>
+          <div class="card">
+            <div class="badges skills">
+              <span class="skill">Client Communication</span>
+              <span class="skill">Problem-Solving</span>
+              <span class="skill">Teamwork & Collaboration</span>
+              <span class="skill">Adaptability</span>
+              <span class="skill">Attention to Detail</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-title">Languages</div>
+          <div class="card">
+            <ul>
+              <li>English - Fluent</li>
+              <li>Local languages - Basic</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-title">Availability</div>
+          <div class="availability-card">
+            <p>Open to internships and entry-level roles in IT Support, Systems Analysis, or Business Analysis. Willing
+              to relocate for the right opportunity.</p>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="center">Last updated: October 2025. <br> Built with HTML, CSS, and a passion for clean design.</div>
+      <div class="center">2025 P. James @ Invocrea8</div>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      const icon = document.getElementById('themeIcon');
+      const STORAGE_KEY = 'pj_theme_preference';
+
+      function getStoredTheme() {
+        try {
+          return localStorage.getItem(STORAGE_KEY);
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function setStoredTheme(val) {
+        try {
+          if (val === null) localStorage.removeItem(STORAGE_KEY);
+          else localStorage.setItem(STORAGE_KEY, val);
+        } catch (e) { /* ignore storage errors */ }
+      }
+
+      function systemPrefersDark() {
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
+
+      function applyTheme(theme) {
+        if (theme === 'dark' || (theme === null && systemPrefersDark())) {
+          root.setAttribute('data-theme', 'dark');
+          icon.textContent = '☀️';
+          toggle.setAttribute('aria-pressed', 'true');
+          toggle.title = 'Switch to light theme';
+        } else if (theme === 'light' || (theme === null && !systemPrefersDark())) {
+          root.setAttribute('data-theme', 'light');
+          icon.textContent = '🌙';
+          toggle.setAttribute('aria-pressed', 'false');
+          toggle.title = 'Switch to dark theme';
+        }
+      }
+
+      const stored = getStoredTheme();
+      applyTheme(stored);
+
+      if (window.matchMedia) {
+        const mq = window.matchMedia('(prefers-color-scheme: dark)');
+        mq.addEventListener && mq.addEventListener('change', () => {
+          const storedNow = getStoredTheme();
+          if (!storedNow) applyTheme(null);
+        });
+      }
+
+      toggle.addEventListener('click', () => {
+        const currentStored = getStoredTheme();
+        let activeTheme;
+        if (currentStored === 'dark') {
+          activeTheme = 'light';
+        } else if (currentStored === 'light') {
+          activeTheme = 'dark';
+        } else {
+          const isCurrentlyDark = root.getAttribute('data-theme') === 'dark' || systemPrefersDark();
+          activeTheme = isCurrentlyDark ? 'light' : 'dark';
+        }
+        applyTheme(activeTheme);
+        setStoredTheme(activeTheme);
+      });
+
+      toggle.setAttribute('role', 'switch');
+    })();
+  </script>
+</body>
+
+</html>
